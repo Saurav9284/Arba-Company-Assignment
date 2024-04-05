@@ -1,70 +1,73 @@
-# Getting Started with Create React App
+## Arba
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Arba is online e-commerce shop where you can buy products and add products and category added update profile function..
 
-## Available Scripts
+## 🟢 Frontend :-
 
-In the project directory, you can run:
+🟡 GitHub Repo :- https://github.com/Saurav9284/Arba-Frontend
 
-### `npm start`
+🟡 Frontend Deploy :- https://arba-assignment.vercel.app/login
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+ ## How to Run <br/>
+ 
+   ### Installation 
+   
+   - Clone the repository:  `https://github.com/Saurav9284/Arba-Frontend` 
+   - Navigate to the project directory:   `cd arba` 
+   - Install the dependencies:   `npm install` 
+   - Start the development server:   `npm run start`
+   - Open your browser and visit:   `http://localhost:3000`
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Login/Signup :- 
 
-### `npm test`
+![Screenshot 2024-04-05 194903](https://github.com/Saurav9284/Arba-Frontend/assets/135011685/858e5554-318d-40cc-8117-8c9158cc36c7)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+![Screenshot 2024-04-05 194916](https://github.com/Saurav9284/Arba-Frontend/assets/135011685/1c640696-3dc0-47a7-b0a0-db7d77008535)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Terms & conditions :- 
 
-### `npm run eject`
+![Screenshot 2024-04-05 195338](https://github.com/Saurav9284/Arba-Frontend/assets/135011685/79b9de91-4f9f-494b-9b11-8b0668d0fbfb)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Home-Page :-
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+![Screenshot 2024-04-05 195421](https://github.com/Saurav9284/Arba-Frontend/assets/135011685/1e1ce5a3-684f-469a-bd73-8aed2b4b45c0)
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![Screenshot 2024-04-05 195437](https://github.com/Saurav9284/Arba-Frontend/assets/135011685/144ea097-ee46-4408-8add-a3e3b1dcc297)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+## All Products :-
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+![Screenshot 2024-04-05 195528](https://github.com/Saurav9284/Arba-Frontend/assets/135011685/12ff224c-d418-4b72-bfec-df59e50aadb8)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## My-Cart :-
 
-### Making a Progressive Web App
+![Screenshot 2024-04-05 195607](https://github.com/Saurav9284/Arba-Frontend/assets/135011685/7713af97-3cab-483e-b9e5-05738f03f7a0)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Update/Profile :-
 
-### Advanced Configuration
+![Screenshot 2024-04-05 195632](https://github.com/Saurav9284/Arba-Frontend/assets/135011685/7ffab807-c461-4e0b-8f08-a572db412e16)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+![Screenshot 2024-04-05 195712](https://github.com/Saurav9284/Arba-Frontend/assets/135011685/3a6d0629-250e-4b3a-8f5b-e20ef2fb8c22)
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
+
+
+
+
+
+
+
+
+
