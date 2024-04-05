@@ -12,7 +12,7 @@ Arba is online e-commerce shop where you can buy products and add products and c
 
 🟡 GitHub Repo :- 
 
-🟡 Frontend Deploy :- 
+🟡 Backend Deploy :- https://arba-backend.vercel.app/
 
  ## How to Run <br/>
  
