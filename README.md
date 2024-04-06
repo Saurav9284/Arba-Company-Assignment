@@ -24,6 +24,40 @@ Arba is online e-commerce shop where you can buy products and add products and c
    - Start the development server:   `npm run start`
    - Open your browser and visit:   `http://localhost:3000`
 
+## API Endpoints🌍 :-
+
+🌐 <a href='https://arba-backend.vercel.app/'>URL</a>
+
+✅ Server check ==> app/
+
+### Authentication 👨🏼‍💻:-
+
+✅ Login ==> /user/login
+
+✅ Signup ==> /user/register
+
+✅ Update profile ==> /user/profile/update
+
+### CURD Products :-
+
+✅ GET ==> /api/product
+
+✅ POST ==> /api/product
+
+✅ PATCH ==> /api/product/update/id
+
+✅ DELETE ==> /api/product/delete/id
+
+### CURD Category :-
+
+✅ GET ==> /url/category
+
+✅ POST ==> /url/category
+
+✅ PATCH ==> /url/category/update/id
+
+✅ DELETE ==> /url/category/delete/id
+
 ## Login/Signup :- 
 
 ![Screenshot 2024-04-05 194903](https://github.com/Saurav9284/Arba-Frontend/assets/135011685/858e5554-318d-40cc-8117-8c9158cc36c7)
@@ -66,43 +100,6 @@ Arba is online e-commerce shop where you can buy products and add products and c
 
 ![Screenshot 2024-04-06 105923](https://github.com/Saurav9284/Arba-Company-Assignment/assets/135011685/147fc00d-186d-4f7a-a4f0-24e2de31d537)
 
-
-
-
-
-## API Endpoints🌍 :-
-
-🌐 <a href='https://arba-backend.vercel.app/'>URL</a>
-
-✅ Server check ==> app/
-
-### Authentication 👨🏼‍💻:-
-
-✅ Login ==> /user/login
-
-✅ Signup ==> /user/register
-
-✅ Update profile ==> /user/profile/update
-
-### CURD Products :-
-
-✅ GET ==> /api/product
-
-✅ POST ==> /api/product
-
-✅ PATCH ==> /api/product/update/id
-
-✅ DELETE ==> /api/product/delete/id
-
-### CURD Category :-
-
-✅ GET ==> /url/category
-
-✅ POST ==> /url/category
-
-✅ PATCH ==> /url/category/update/id
-
-✅ DELETE ==> /url/category/delete/id
 
 Happy Coding 😊!!
 
