@@ -1,97 +1,213 @@
 import React, { useState } from 'react';
-import { Table, Thead, Tbody, Tr, Th, Td, Button } from '@chakra-ui/react';
+import { Table, Thead, Tbody, Tr, Th, Td, Button, Flex, Box, Heading, Input, FormControl, Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton } from '@chakra-ui/react';
 
-const MyStore = () => {
-  const [showCategories, setShowCategories] = useState(true); // Initially show categories
+const EditModal = ({ isOpen, onClose, item, handleEdit }) => {
+  const [newName, setNewName] = useState(item.name);
+  const [newDescription, setNewDescription] = useState(item.description || '');
+  const [newPrice, setNewPrice] = useState(item.price || '');
 
-  // Sample data for categories and products
-  const categories = [
-    { id: 1, name: 'Category 1', description: 'Description 1' },
-    { id: 2, name: 'Category 2', description: 'Description 2' },
-    { id: 3, name: 'Category 3', description: 'Description 3' },
-  ];
-
-  const products = [
-    { id: 1, name: 'Product 1', price: '$10' },
-    { id: 2, name: 'Product 2', price: '$20' },
-    { id: 3, name: 'Product 3', price: '$30' },
-  ];
-
-  const handleHeaderClick = (type) => {
-    if (type === 'categories') {
-      setShowCategories(true);
-    } else {
-      setShowCategories(false);
-    }
-  };
-
-  const handleEdit = (id, type) => {
-    console.log(`Editing ${type} with id ${id}`);
-  };
-
-  const handleDelete = (id, type) => {
-    console.log(`Deleting ${type} with id ${id}`);
+  const handleSubmit = () => {
+    const newData = {
+      name: newName,
+      description: newDescription,
+      price: newPrice
+    };
+    handleEdit(item.id, newData);
+    onClose();
   };
 
   return (
-    <div>
-      <h1 style={{ textAlign: "center", fontWeight: "bolder", fontSize: "40px" }}>My Store</h1>
-      <br />
-      <br />
-      <br />
-      <br />
+    <Modal isOpen={isOpen} onClose={onClose}>
+      <ModalOverlay />
+      <ModalContent>
+        <ModalHeader>Edit {item.name}</ModalHeader>
+        <ModalCloseButton />
+        <ModalBody>
+          <FormControl mb={4}>
+            <Input placeholder="Name" value={newName} onChange={(e) => setNewName(e.target.value)} />
+          </FormControl>
+          {item.description && (
+            <FormControl mb={4}>
+              <Input placeholder="Description" value={newDescription} onChange={(e) => setNewDescription(e.target.value)} />
+            </FormControl>
+          )}
+          {item.price && (
+            <FormControl mb={4}>
+              <Input placeholder="Price" value={newPrice} onChange={(e) => setNewPrice(e.target.value)} />
+            </FormControl>
+          )}
+        </ModalBody>
+        <ModalFooter>
+          <Button colorScheme="blue" mr={3} onClick={handleSubmit}>Save</Button>
+          <Button onClick={onClose}>Cancel</Button>
+        </ModalFooter>
+      </ModalContent>
+    </Modal>
+  );
+};
+
+const MyStore = () => {
+  const [showCategories, setShowCategories] = useState(true); // Initially show categories
+  const [categoryData, setCategoryData] = useState([
+    { id: 1, name: 'Category 1', description: 'Description 1' },
+    { id: 2, name: 'Category 2', description: 'Description 2' },
+    { id: 3, name: 'Category 3', description: 'Description 3' },
+  ]);
+  const [productData, setProductData] = useState([
+    { id: 1, name: 'Product 1', price: '$10' },
+    { id: 2, name: 'Product 2', price: '$20' },
+    { id: 3, name: 'Product 3', price: '$30' },
+  ]);
+  const [newItemName, setNewItemName] = useState('');
+  const [newItemDescription, setNewItemDescription] = useState('');
+  const [newItemPrice, setNewItemPrice] = useState('');
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [editingItem, setEditingItem] = useState(null);
+
+  const handleShowCategories = () => {
+    setShowCategories(true);
+  };
+
+  const handleShowProducts = () => {
+    setShowCategories(false);
+  };
+
+  const handleAdd = () => {
+    if (showCategories) {
+      const newCategory = {
+        id: categoryData.length + 1,
+        name: newItemName,
+        description: newItemDescription,
+      };
+      setCategoryData([...categoryData, newCategory]);
+      setNewItemName('');
+      setNewItemDescription('');
+    } else {
+      const newProduct = {
+        id: productData.length + 1,
+        name: newItemName,
+        price: newItemPrice,
+      };
+      setProductData([...productData, newProduct]);
+      setNewItemName('');
+      setNewItemPrice('');
+    }
+  };
+
+  const handleEdit = (id, newData) => {
+    if (showCategories) {
+      const updatedCategories = categoryData.map(category => {
+        if (category.id === id) {
+          return { ...category, ...newData };
+        }
+        return category;
+      });
+      setCategoryData(updatedCategories);
+    } else {
+      const updatedProducts = productData.map(product => {
+        if (product.id === id) {
+          return { ...product, ...newData };
+        }
+        return product;
+      });
+      setProductData(updatedProducts);
+    }
+  };
+
+  const handleDelete = (id, type) => {
+    if (type === 'category') {
+      const updatedCategories = categoryData.filter(category => category.id !== id);
+      setCategoryData(updatedCategories);
+    } else {
+      const updatedProducts = productData.filter(product => product.id !== id);
+      setProductData(updatedProducts);
+    }
+  };
+
+  const openEditModal = (item) => {
+    setEditingItem(item);
+    setIsEditModalOpen(true);
+  };
+
+  const closeEditModal = () => {
+    setIsEditModalOpen(false);
+    setEditingItem(null);
+  };
+
+  return (
+    <Box p={8}>
+      <Heading as="h1" textAlign="center" mb={8} size="2xl">My Store</Heading>
+      <Flex justify="center" mb={8}>
+        <Button colorScheme="teal" variant={showCategories ? "solid" : "outline"} onClick={handleShowCategories} mr={2}>Categories</Button>
+        <Button colorScheme="teal" variant={!showCategories ? "solid" : "outline"} onClick={handleShowProducts}>Products</Button>
+      </Flex>
       <Table variant="striped" colorScheme="teal" borderWidth="1px">
         <Thead>
           <Tr>
-            <Th borderWidth="1px" colSpan={3} textAlign="center" onClick={() => handleHeaderClick('categories')} style={{ cursor: 'pointer' }}>Categories</Th>
-            <Th borderWidth="1px" colSpan={3} textAlign="center" onClick={() => handleHeaderClick('products')} style={{ cursor: 'pointer' }}>Products</Th>
-          </Tr>
-          <Tr>
-            <Th borderWidth="1px">ID</Th>
-            <Th borderWidth="1px">Name</Th>
-            <Th borderWidth="1px">Description/Price</Th>
-            <Th borderWidth="1px">ID</Th>
-            <Th borderWidth="1px">Name</Th>
-            <Th borderWidth="1px">Price</Th>
+            <Th>ID</Th>
+            <Th>Name</Th>
+            <Th>{showCategories ? 'Description' : 'Price'}</Th>
+            <Th>Actions</Th>
           </Tr>
         </Thead>
         <Tbody>
           {showCategories ? (
-            categories.map(category => (
-              <Tr key={category.id}>
-                <Td borderWidth="1px">{category.id}</Td>
-                <Td borderWidth="1px">{category.name}</Td>
-                <Td borderWidth="1px">{category.description}</Td>
-                <Td borderWidth="1px">
-                  <Button colorScheme="blue" onClick={() => handleEdit(category.id, 'category')}>Edit</Button>
-                </Td>
-                <Td borderWidth="1px">
-                  <Button colorScheme="red" onClick={() => handleDelete(category.id, 'category')}>Delete</Button>
-                </Td>
-                <Td borderWidth="1px"></Td>
-              </Tr>
-            ))
+            <>
+              {categoryData.map(category => (
+                <Tr key={category.id}>
+                  <Td>{category.id}</Td>
+                  <Td>{category.name}</Td>
+                  <Td>{category.description}</Td>
+                  <Td>
+                    <Button colorScheme="blue" size="sm" mr={2} onClick={() => openEditModal(category)}>Edit</Button>
+                    <Button colorScheme="red" size="sm" onClick={() => handleDelete(category.id, 'category')}>Delete</Button>
+                  </Td>
+                </Tr>
+              ))}
+            </>
           ) : (
-            products.map(product => (
-              <Tr key={product.id}>
-                <Td borderWidth="1px"></Td>
-                <Td borderWidth="1px"></Td>
-                <Td borderWidth="1px"></Td>
-                <Td borderWidth="1px">{product.id}</Td>
-                <Td borderWidth="1px">{product.name}</Td>
-                <Td borderWidth="1px">{product.price}</Td>
-                <Td borderWidth="1px">
-                  <Button colorScheme="blue" onClick={() => handleEdit(product.id, 'product')}>Edit</Button>
-                </Td>
-                <Td borderWidth="1px">
-                  <Button colorScheme="red" onClick={() => handleDelete(product.id, 'product')}>Delete</Button>
-                </Td>
-              </Tr>
-            ))
+            <>
+              {productData.map(product => (
+                <Tr key={product.id}>
+                  <Td>{product.id}</Td>
+                  <Td>{product.name}</Td>
+                  <Td>{product.price}</Td>
+                  <Td>
+                    <Button colorScheme="blue" size="sm" mr={2} onClick={() => openEditModal(product)}>Edit</Button>
+                    <Button colorScheme="red" size="sm" onClick={() => handleDelete(product.id, 'product')}>Delete</Button>
+                  </Td>
+                </Tr>
+              ))}
+            </>
           )}
+          <Tr>
+            <Td></Td>
+            <Td>
+              <FormControl>
+                <Input placeholder="Name" value={newItemName} onChange={(e) => setNewItemName(e.target.value)} />
+              </FormControl>
+            </Td>
+            <Td>
+              {showCategories ? (
+                <FormControl>
+                  <Input placeholder="Description" value={newItemDescription} onChange={(e) => setNewItemDescription(e.target.value)} />
+                </FormControl>
+              ) : (
+                <FormControl>
+                  <Input placeholder="Price" value={newItemPrice} onChange={(e) => setNewItemPrice(e.target.value)} />
+                </FormControl>
+              )}
+            </Td>
+            <Td>
+              <Button colorScheme="green" size="sm" onClick={handleAdd}>Add</Button>
+            </Td>
+          </Tr>
         </Tbody>
       </Table>
-    </div>
+      {editingItem && (
+        <EditModal isOpen={isEditModalOpen} onClose={closeEditModal} item={editingItem} handleEdit={handleEdit} />
+      )}
+    </Box>
   )
 }
 
