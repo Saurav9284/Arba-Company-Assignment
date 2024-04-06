@@ -62,6 +62,11 @@ Arba is online e-commerce shop where you can buy products and add products and c
 
 ![Screenshot 2024-04-05 195712](https://github.com/Saurav9284/Arba-Frontend/assets/135011685/3a6d0629-250e-4b3a-8f5b-e20ef2fb8c22)
 
+## My-Store :-
+
+![Screenshot 2024-04-06 105923](https://github.com/Saurav9284/Arba-Company-Assignment/assets/135011685/147fc00d-186d-4f7a-a4f0-24e2de31d537)
+
+
 
 
 
