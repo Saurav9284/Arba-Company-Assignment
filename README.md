@@ -14,6 +14,11 @@ Arba is online e-commerce shop where you can buy products and add products and c
 
 🟡 Backend Deploy :- https://arba-backend.vercel.app/
 
+ ## Credentials <br/>
+
+ - Email : `example@gmail.com`
+ - Password : `Example@123`
+
  ## How to Run <br/>
  
    ### Installation 
